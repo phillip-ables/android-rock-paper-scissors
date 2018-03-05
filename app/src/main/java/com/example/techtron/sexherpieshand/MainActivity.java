@@ -3,6 +3,7 @@ package com.example.techtron.sexherpieshand;
 import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -22,6 +23,26 @@ public class MainActivity extends AppCompatActivity {
         btn_sex = (Button) findViewById(R.id.btn_sex);
         btn_herpies = (Button) findViewById(R.id.btn_herpies);
         btn_hand = (Button) findViewById(R.id.btn_hand);
-        
+
+        btn_sex.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        btn_herpies.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        btn_hand.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
     }
 }

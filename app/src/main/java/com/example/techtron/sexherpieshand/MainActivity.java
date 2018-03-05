@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -14,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     Button btn_sex, btn_herpies, btn_hand;
     ImageView iv_cpu, iv_me;
 
-    String myChoice, cpuChoice;
+    String myChoice, cpuChoice, result;
 
     Random r;
 
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         r = new Random();
 
-        btn_sex.setOnClickListener(new View.OnClickListener(){
+        btn_sex.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 myChoice = "sex";
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 calculate();
             }
         });
-        btn_herpies.setOnClickListener(new View.OnClickListener(){
+        btn_herpies.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 myChoice = "herpies";
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 calculate();
             }
         });
-        btn_hand.setOnClickListener(new View.OnClickListener(){
+        btn_hand.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 myChoice = "hand";
@@ -57,17 +58,57 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
     public void calculate() {
         int cpu = r.nextInt(3);
-        if(cpu == 0){
+        if (cpu == 0) {
             cpuChoice = "sex";
             iv_cpu.setImageResource(R.drawable.sex);
-        }else if(cpu == 1){
+        } else if (cpu == 1) {
             cpuChoice = "herpies";
             iv_cpu.setImageResource(R.drawable.herpies);
-        }else if(cpu == 2){
+        } else if (cpu == 2) {
             cpuChoice = "hand";
             iv_cpu.setImageResource(R.drawable.hand);
         }
+
+        if (myChoice.equals("sex")) {
+            switch (cpuChoice.substring(0)) {
+                case "sex":
+                    result = "match";
+                    break;
+                case "herpies":
+                    result = "Lose";
+                    break;
+                case "hand":
+                    result = "Win";
+                    break;
+            }
+        } else if (myChoice.equals("herpies")) {
+            switch (cpuChoice.substring(0)) {
+                case "sex":
+                    result = "Win";
+                    break;
+                case "herpies":
+                    result = "match";
+                    break;
+                case "hand":
+                    result = "Loose";
+                    break;
+            }
+        } else if (myChoice.equals("hand")) {
+            switch (cpuChoice.substring(0)) {
+                case "sex":
+                    result = "Loose";
+                    break;
+                case "herpies":
+                    result = "Win";
+                    break;
+                case "hand":
+                    result = "match";
+                    break;
+            }
+        }
+        Toast.makeText(MainActivity.this, "You " + result, Toast.LENGTH_SHORT).show();
     }
 }

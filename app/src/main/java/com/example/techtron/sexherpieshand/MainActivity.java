@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 myChoice = "sex";
+                iv_me.setImageResource(R.drawable.sex);
                 calculate();
             }
         });
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 myChoice = "herpies";
+                iv_me.setImageResource(R.drawable.herpies);
                 calculate();
             }
         });
@@ -50,11 +52,22 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 myChoice = "hand";
+                iv_me.setImageResource(R.drawable.hand);
                 calculate();
             }
-        })
+        });
     }
     public void calculate() {
-
+        int cpu = r.nextInt(3);
+        if(cpu == 0){
+            cpuChoice = "sex";
+            iv_cpu.setImageResource(R.drawable.sex);
+        }else if(cpu == 1){
+            cpuChoice = "herpies";
+            iv_cpu.setImageResource(R.drawable.herpies);
+        }else if(cpu == 2){
+            cpuChoice = "hand";
+            iv_cpu.setImageResource(R.drawable.hand);
+        }
     }
 }
